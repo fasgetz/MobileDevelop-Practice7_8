@@ -30,7 +30,8 @@ class CalculationTest {
         var Calculation = Calcul() // Логика
         var roots = Calculation.EquationSquare(1,17,-18)
 
-        assertEquals(2, roots.count())
+        assertEquals(2, roots.roots.count())
+        assertEquals("Два корня", roots.message)
     }
 
     @Test
@@ -38,7 +39,9 @@ class CalculationTest {
         var Calculation = Calcul() // Логика
         var roots = Calculation.EquationSquare(2,-4,2)
 
-        assertEquals(1, roots.count())
+
+        assertEquals(1, roots.roots.count())
+        assertEquals("Один корень", roots.message)
     }
 
     @Test
@@ -46,6 +49,23 @@ class CalculationTest {
         var Calculation = Calcul() // Логика
         var roots = Calculation.EquationSquare(1,1,1)
 
-        assertEquals(0, roots.count())
+        assertEquals(0, roots.roots.count())
+        assertEquals("Нет корней", roots.message)
     }
+
+
+    @Test
+    fun NotSquare() {
+        var Calculation = Calcul() // Логика
+        val a: Int = 0
+        val b: Int = 5
+        val c: Int = 10
+
+        var roots = Calculation.EquationSquare(a,b,c)
+
+        assertEquals("а не может быть = 0", roots.message)
+    }
+
+    // a = 0
+    // 2 4 2 = -1
 }
