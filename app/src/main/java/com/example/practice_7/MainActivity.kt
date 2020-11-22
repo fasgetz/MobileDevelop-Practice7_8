@@ -1,11 +1,11 @@
 package com.example.practice_7
 
-import android.os.Bundle
 //import android.vi
+
+import android.os.Bundle
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-
-import android.view.View
 import kotlinx.android.synthetic.main.activity_main.*
 
 
@@ -15,10 +15,32 @@ class MainActivity : AppCompatActivity() {
     var Calculation = Calcul() // Логика
 
 
+
+/*
+    var db = Room.databaseBuilder(
+        applicationContext,
+        AppDatabase::class.java, "populus-database"
+    ).build()
+
+
+            if (test != null) {
+            val myToast = Toast.makeText(this, "Сущность не загружена", Toast.LENGTH_LONG)
+            myToast.show()
+        }
+        else {
+            val myToast = Toast.makeText(this, "Сущность загружена!!!", Toast.LENGTH_LONG)
+            myToast.show()
+        }
+
+ */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.tested)
 
+
+        //var db = AppDatabase.getAppDataBase(this)
+        //var dao = db?.MainVM_Dao()
 
 
 
@@ -39,7 +61,7 @@ class MainActivity : AppCompatActivity() {
             // Применяем класс
             var items = Calculation.EquationSquare(a.toInt(), b.toInt(), c.toInt())
 
-            discr.setText("Дискриминант: ${Calculation.Discr}")
+            tvDiscr.setText("Дискриминант: ${Calculation.Discr}")
             if (items.roots.count() == 0) {
                 val myToast = Toast.makeText(this, "Корней нет", Toast.LENGTH_SHORT)
                 myToast.show()
